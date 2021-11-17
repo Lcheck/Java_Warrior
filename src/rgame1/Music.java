@@ -8,17 +8,13 @@ import javazoom.jl.player.Player; //음악 실행을 위한 외부 라이브 러리에서 플레이
 
 public class Music extends Thread{ //쓰레드 클래스 상속 ( 쓰레드란 프로그램 안의 작은 프로그램)
 
-	
 	private Player player; // 외부 라이브러리의 플레이어 클래스 객체
-	
 	private boolean isLoop; // 무한 반복 여부 체킹 용
 	
 	
 	
 	private File file ;
-	
 	private FileInputStream fis;
-	
 	private BufferedInputStream bis;  // mp3 파일을 불러오기 위한 객체들
 	
 
@@ -30,11 +26,8 @@ public class Music extends Thread{ //쓰레드 클래스 상속 ( 쓰레드란 프로그램 안의
 			this.isLoop = isLoop;
 			
 			file = new File (Main.class.getResource("../music/" + name).toURI()); // mp3 파일 가져오기
-			
-			fis = new FileInputStream(file); // 해당 파일을 입력받아서
-			
-			bis = new BufferedInputStream(fis); // 버퍼로 가져온다.
-			
+			fis = new FileInputStream(file); // 해당 파일을 입력받아서	
+			bis = new BufferedInputStream(fis); // 버퍼로 가져온다.	
 			player = new Player(bis); // 받은 파일을 담는다.
 			
 			
@@ -58,7 +51,7 @@ public class Music extends Thread{ //쓰레드 클래스 상속 ( 쓰레드란 프로그램 안의
 		
 		
 		
-		public void close() { // 사용자가 곡을 변환할 때, 기존의 음악을 안정적으로 종료하게 해줌
+		public void close() { // 사용자가 곡을 변환할 때, 기존의 음악을 안정적으로 종료하게 해줌(무환 체킹한 경우)
 			
 			isLoop = false;
 			player.close();
@@ -78,11 +71,8 @@ public class Music extends Thread{ //쓰레드 클래스 상속 ( 쓰레드란 프로그램 안의
 					
 					
 					fis = new FileInputStream(file); // 해당 파일을 입력받아서 // 반복용
-					
 					bis = new BufferedInputStream(fis); // 버퍼로 가져온다.
-					
 					player = new Player(bis); // 받은 파일을 담는다.
-					
 					player.play(); // 곡 실행
 					
 				} while (isLoop); // 무한 반복 체킹

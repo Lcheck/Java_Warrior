@@ -224,6 +224,7 @@ public void releaseL() {
 		
 		Beat[] beats = null;
 		
+		System.out.println(isInterrupted());
 		
 		if ( titleName.equals("Flower Dance") & difficulty.equals("Easy")){ //현재 실행곡이 ~ 이고, 난이도가 ~ 라면
 			
@@ -265,7 +266,7 @@ public void releaseL() {
 			boolean dropped = false; // 하강 플래그
 			
 		
-			System.out.println(isInterrupted());
+			
 			
 			if (beats[i].getTime() <= gameMusic.getTime()) { //각 노트가 떨어질 시간대가, 현 음악의 진행시간과 일치한다면
 				
@@ -284,6 +285,7 @@ public void releaseL() {
 				} catch (InterruptedException e){
 					
 					System.out.println("222");
+					System.out.println(isInterrupted());
 				}
 				
 			}

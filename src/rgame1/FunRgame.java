@@ -579,12 +579,14 @@ public void gameStart (int nowSelected, String difficulty) { //리듬게임 시작 함�
 
 public void backMain () { //백 버튼을 누르면
 	
-	isGameScreen =false; //게임 끝남을 알리겠다.
-	game.close(); // 게임 쓰레드 종료
-	
-	selectTrack(nowSelected); //원래 선택했던 트랙으로 
 	
 	isMainScreen = true; //셀렉트 화면 이라고 알림
+	
+	
+	
+	
+	
+	
 	leftButton.setVisible(true);
 	rightButton.setVisible(true);
 	easyButton.setVisible(true);
@@ -592,9 +594,10 @@ public void backMain () { //백 버튼을 누르면
 	//background=new ImageIcon(Main.class.getResource("../images/" + trackList.get(nowSelected).getGameImage()))
 	//.getImage(); 
 	backButton.setVisible(false); //백버튼 안보이게
-
 	
-	
+	selectTrack(nowSelected); //원래 선택했던 트랙으로 
+	isGameScreen =false; //게임 끝남을 알리겠다.
+	game.close(); // 게임 쓰레드 종료
 
 	 
 
